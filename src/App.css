@@ -1,0 +1,44 @@
+.app{
+    padding: 2em 1.5em;
+    max-width: 1068px;
+    margin: 0 auto;
+    padding: 0;
+    
+}
+
+.app__header {
+    display: flex;
+    margin-bottom: 1em;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
+    height: 80px;
+    
+}
+
+.app__title{
+    font-weight: 600;
+    margin-left: 0.8em;
+    /* margin-bottom: 1em; */
+}
+
+.app__btn {
+    background-color: #555a88;
+    color: white;
+    padding: 0.5em 1.5em;
+    margin-right: 2em;
+    border-radius: 0.5em;
+    transition: transform 200ms ease;
+}
+
+.app__btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.15);
+}
+
+.app__user-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+}
