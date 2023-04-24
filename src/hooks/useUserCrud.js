@@ -1,5 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
+// import "..components/InfoOk.jsx"
+
 
 const useUserCrud = () =>{
     const [users, setUsers] = useState()
@@ -14,10 +16,16 @@ const useUserCrud = () =>{
     }
      
     //post
-    const createNewUser = (data) => {
+    const createNewUser = (data, setCrudOpOk) => {
         axios.post(url, data)
-            .then(res => getAllUsers())
-            .catch(err => console.log(err))
+        .then(res => {
+            setCrudOpOk(true)
+            getAllUsers()
+            setTimeout(() => {
+                setCrudOpOk(false)
+            }, 1500);
+        })
+        .catch(err => console.log(err))
     }
 
     //delete
@@ -36,10 +44,17 @@ const useUserCrud = () =>{
 
     //update
 
-    const updateUserById = (id, data) => {
+    const updateUserById = (id, data, setCrudOpOk) => {
         const urlUpdate = `${url}${id}/`
         axios.patch(urlUpdate, data)
-            .then(res => getAllUsers())
+            .then(res => {
+                setCrudOpOk(true)
+                getAllUsers()
+                setTimeout(() => {
+                    setCrudOpOk(false)
+                }, 1500);
+                
+            })
             .catch(err => console.log(err))
 
     }

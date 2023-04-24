@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import './styles/formUser.css'
 
-const FormUser = ({ createNewUser, updateInfo, updateUserById,
-   setFormClose, formClose }) => {
+const FormUser = ({ createNewUser, updateInfo,  updateUserById,
+   setFormClose, formClose, setCrudOpOk }) => {
 
 
   const {register, handleSubmit, reset } = useForm()
@@ -13,7 +13,7 @@ const FormUser = ({ createNewUser, updateInfo, updateUserById,
     password: '',
     first_name: '',
     last_name: '',
-    birth_day: ''
+    birthday: ''
   }
 
   useEffect(() => {
@@ -23,14 +23,21 @@ const FormUser = ({ createNewUser, updateInfo, updateUserById,
   const submit = (data) => {
     if(updateInfo){
         //update
-      updateUserById(updateInfo.id, data)
+      updateUserById(updateInfo.id, data, setCrudOpOk)
+      
     }else{
-      createNewUser(data)
+      createNewUser(data, setCrudOpOk)
     }
     reset(defaultValues)
-    console.log(data)
+    //console.log(data)
   }
+  
   const handleExit =  ()=>{
+    reset(defaultValues)
+    setFormClose(true)
+  }
+
+  const handleUpdateCreate = ()=>{
     setFormClose(true)
   }
 
@@ -59,8 +66,8 @@ const FormUser = ({ createNewUser, updateInfo, updateUserById,
           <label className='form__label' htmlFor="birthday">Birthday</label>
           <input className='form__input' {...register("birthday")} type="date" id="birthday" />
         </div>
-        <button onClick={handleExit} className='form__btn'>{updateInfo? 'Update' : 'Create'}</button>
-      </form>
+        <button onClick={handleUpdateCreate} className='form__btn'>{updateInfo? 'Update' : 'Create'}</button>
+      </form>                                              
     </div>
     
   )

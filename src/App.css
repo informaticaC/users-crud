@@ -1,4 +1,5 @@
 .app{
+    box-sizing: border-box;
     padding: 2em 1.5em;
     max-width: 1068px;
     margin: 0 auto;
@@ -11,9 +12,32 @@
     margin-bottom: 1em;
     justify-content: space-between;
     align-items: center;
-    /* background-color: red; */
+    /* background-color: lightsalmon; */
     height: 80px;
+    position: relative;
+}
+
+.app__title-formOpOk{
+    position: absolute;
+    left: 50%;
+    top:-44px; 
+    height: 44px;
+    background-color: rgb(209, 114, 128);
+    padding: .5em 1em .5em 1em;
+    width: 180px;
+    margin-left: -90px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2em;
+    color: white;
+    border-radius: 0 0 10px 10px;
+    transition: top 300ms;
     
+}
+
+.app__title-formOpOkView{
+    top: 0px;
+
 }
 
 .app__title{

@@ -5,9 +5,10 @@ import UserCard from './components/UserCard'
 import FormUser from './components/FormUser'
 
 function App() {
-  const [updateInfo, setUpdateInfo] = useState(0)
+  const [updateInfo, setUpdateInfo] = useState()
   const [formClose, setFormClose] = useState(true)
-  const{   
+  const [crudOpOk, setCrudOpOk] = useState(false)
+  const {   
     users,
     getAllUsers,
     createNewUser,
@@ -21,6 +22,7 @@ function App() {
   }, [])
   
   const handleOpenForm= ()=>{
+    setUpdateInfo()
     setFormClose(false)
   } 
 
@@ -28,6 +30,7 @@ function App() {
     <div className="app">
       <header className='app__header'>
         <h1 className='app__title'>Users</h1>
+        <div className={`app__title-formOpOk ${crudOpOk? 'app__title-formOpOkView' : '' }`}>Operation Ok</div>
         <button onClick={handleOpenForm} className="app__btn">Create new</button>
       </header>
       < FormUser 
@@ -36,6 +39,7 @@ function App() {
       updateInfo={updateInfo}
       setFormClose={setFormClose}
       formClose={formClose}
+      setCrudOpOk={setCrudOpOk}
       />
       <div className='app__user-container'>
         {
