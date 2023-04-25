@@ -4,12 +4,14 @@ import useUserCrud from './hooks/useUserCrud'
 import UserCard from './components/UserCard'
 import FormUser from './components/FormUser'
 import WarningModal from './components/WarningModal'
+import { useForm } from 'react-hook-form'
 
 function App() {
   const [updateInfo, setUpdateInfo] = useState()
   const [formClose, setFormClose] = useState(true)
   const [crudOpOk, setCrudOpOk] = useState(false)
   const [closeWarning, setCloseWarning] = useState(true)
+  const {register, handleSubmit, reset } = useForm()
   const {   
     users,
     getAllUsers,
@@ -40,7 +42,9 @@ function App() {
       closeWarning = {closeWarning} 
       deleteUserById = {deleteUserById}
       updateInfo = {updateInfo}
+      setUpdateInfo={setUpdateInfo}
       setCrudOpOk={setCrudOpOk}
+      reset={reset}
 
       />
       < FormUser 
@@ -50,6 +54,10 @@ function App() {
       setFormClose={setFormClose}
       formClose={formClose}
       setCrudOpOk={setCrudOpOk}
+      register ={register}
+      handleSubmit={handleSubmit}
+      reset={reset}
+      //register, handleSubmit, reset
       />
       <div className='app__user-container'>
         {

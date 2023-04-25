@@ -6,17 +6,32 @@ const WarningModal = ({deleteUserById,
      setCloseWarning ,
      closeWarning,
      updateInfo,
-     setCrudOpOk 
+     setUpdateInfo,
+     setCrudOpOk,
+     reset 
     }) => {
-    // const [closeWarning, setCloseWarning] = useState(false)
-      //  console.log(updateInfo.first_name);
+    
+      const defaultValues = {
+        email: '',
+        password: '',
+        first_name: '',
+        last_name: '',
+        birthday: ''
+      }
+    
+    
     const handleWarningYes = ()=>{
         setCloseWarning(true)
         deleteUserById(updateInfo.id, setCrudOpOk)
+        reset(defaultValues)
     }
 
     const handleWarningCancel = ()=>{
+        
         setCloseWarning(true)
+        setUpdateInfo()
+        reset(defaultValues)
+        
     }
 
   return (

@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form'
 import './styles/formUser.css'
 
 const FormUser = ({ createNewUser, updateInfo,  updateUserById,
-  setFormClose, formClose, setCrudOpOk }) => {
+  setFormClose, formClose, setCrudOpOk, register, handleSubmit, reset }) => {
 
-  const {register, handleSubmit, reset } = useForm()
+  //const {register, handleSubmit, reset } = useForm()
 
   const defaultValues = {
     email: '',
