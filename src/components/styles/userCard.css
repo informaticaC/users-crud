@@ -9,6 +9,7 @@
     transition: transform 200ms;
     background-color: white;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.25);
+   
 }
 .user:hover{
     transform: scale(1.03)
@@ -44,8 +45,10 @@
 }
 
 .user__value {
-    font-size: .9rem;
-    font-weight: 600;
+    width: 100%;
+    font-size: 0.8rem;
+    font-weight: 400;
+    overflow: hidden;
 }
 
 .user__footer {
