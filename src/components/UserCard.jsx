@@ -1,10 +1,18 @@
 import React from "react";
 import './styles/userCard.css'
 
-const UserCard = ({ user, deleteUserById, setUpdateInfo, setFormClose, setCrudOpOk }) => {
+const UserCard = ({ 
+    user,
+    deleteUserById,
+    setUpdateInfo,
+    setFormClose,
+    setCrudOpOk,
+    setCloseWarning }) => {
   const handleDeleteButton = () => {
     //delete user
-    deleteUserById(user.id, setCrudOpOk)
+    setUpdateInfo(user)
+    setCloseWarning(false)
+    //deleteUserById(user.id, setCrudOpOk)
     //console.log('borrando: ', user.email)
   }
 

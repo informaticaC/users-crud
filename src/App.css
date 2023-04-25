@@ -76,12 +76,32 @@
     gap: 1.5em;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1366px) {
     .app__title{
         margin-left: 9em;
     }
 
     .app__btn {
         margin-right: 22em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .app__title{
+        margin-left: 5em;
+    }
+
+    .app__btn {
+        margin-right: 8em;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .app__title{
+        margin-left: 3em;
+    }
+
+    .app__btn {
+        margin-right: 7em;
     }
 }

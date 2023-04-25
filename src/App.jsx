@@ -3,11 +3,13 @@ import './App.css'
 import useUserCrud from './hooks/useUserCrud'
 import UserCard from './components/UserCard'
 import FormUser from './components/FormUser'
+import WarningModal from './components/WarningModal'
 
 function App() {
   const [updateInfo, setUpdateInfo] = useState()
   const [formClose, setFormClose] = useState(true)
   const [crudOpOk, setCrudOpOk] = useState(false)
+  const [closeWarning, setCloseWarning] = useState(true)
   const {   
     users,
     getAllUsers,
@@ -33,6 +35,14 @@ function App() {
         <div className={`app__title-formOpOk ${crudOpOk? 'app__title-formOpOkView' : '' }`}>Operation Ok</div>
         <button onClick={handleOpenForm} className="app__btn">Create new</button>
       </header>
+      < WarningModal
+      setCloseWarning = {setCloseWarning}
+      closeWarning = {closeWarning} 
+      deleteUserById = {deleteUserById}
+      updateInfo = {updateInfo}
+      setCrudOpOk={setCrudOpOk}
+
+      />
       < FormUser 
       createNewUser={createNewUser}
       updateUserById={updateUserById}
@@ -51,6 +61,8 @@ function App() {
               setUpdateInfo={setUpdateInfo}
               setFormClose={setFormClose}
               setCrudOpOk={setCrudOpOk}
+              setCloseWarning = {setCloseWarning}
+               
             /> 
           ))
         }
