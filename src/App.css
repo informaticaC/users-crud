@@ -37,6 +37,7 @@
     color: white;
     border-radius: 0 0 10px 10px;
     transition: top 300ms;
+    opacity: 1;
     
 }
 
@@ -77,12 +78,10 @@
 
 @media screen and (min-width: 800px) {
     .app__title{
-        
-        margin-left: 3em;
-       
+        margin-left: 9em;
     }
 
     .app__btn {
-        margin-right: 6em;
+        margin-right: 22em;
     }
 }
