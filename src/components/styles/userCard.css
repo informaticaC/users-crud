@@ -3,6 +3,7 @@
     width: 100%;
     max-width: 320px;
     border-radius: 0.4em;
+    
     padding: 1.5em 1em;
     /* background-color: red; */
     transition: transform 200ms;
@@ -15,22 +16,22 @@
 
 .user__name {
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 1em;
     text-transform: capitalize;
 }
 
 .user__list {
     display: grid;
-    gap: 0.5em;
+    gap: 0.8em;
     margin-bottom: 1em;
-    
+    /* background-color: red; */
 }
 
 .user__item {
     display: flex;
     flex-direction: column;
-    gap: 0.2em;
+    gap: 0.25em;
     
 }
 
@@ -39,11 +40,12 @@
     color: #aaa;
     text-transform: uppercase;
     position: relative;
-    left: 1.5em;
+    left: 1.3em;
 }
 
 .user__value {
-    font-size: 0.8rem;
+    font-size: .9rem;
+    font-weight: 600;
 }
 
 .user__footer {
@@ -73,5 +75,7 @@
 
 .user__icon {
     font-size:1.2rem;
+    color:rgb(133, 104, 120);
+    /* background-color: red; */
 }
 

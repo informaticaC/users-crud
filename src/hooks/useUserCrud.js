@@ -29,12 +29,16 @@ const useUserCrud = () =>{
     }
 
     //delete
-    const deleteUserById = (id) => {
+    const deleteUserById = (id, setCrudOpOk) => {
         const urlDelete = `${url}${id}/`
         axios.delete(urlDelete)
             .then(res => {
                 console.log('borrado Ok:', id);
+                setCrudOpOk(true)
                 getAllUsers()
+                setTimeout(() => {
+                    setCrudOpOk(false)
+                }, 1500);
             })
             .catch(err => {
                 

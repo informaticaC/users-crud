@@ -50,6 +50,7 @@ function App() {
               deleteUserById={deleteUserById}
               setUpdateInfo={setUpdateInfo}
               setFormClose={setFormClose}
+              setCrudOpOk={setCrudOpOk}
             /> 
           ))
         }

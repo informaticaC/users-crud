@@ -1,11 +1,11 @@
 import React from "react";
 import './styles/userCard.css'
 
-const UserCard = ({ user, deleteUserById, setUpdateInfo, setFormClose }) => {
+const UserCard = ({ user, deleteUserById, setUpdateInfo, setFormClose, setCrudOpOk }) => {
   const handleDeleteButton = () => {
     //delete user
-    deleteUserById(user.id)
-    console.log('borrando: ', user.email)
+    deleteUserById(user.id, setCrudOpOk)
+    //console.log('borrando: ', user.email)
   }
 
   const handleUpdateButton = ()=> {
@@ -15,6 +15,7 @@ const UserCard = ({ user, deleteUserById, setUpdateInfo, setFormClose }) => {
 
 
   return (
+    
     <article className="user">
       <h2 className="user__name">
           {user.first_name} {user.last_name}
@@ -26,19 +27,21 @@ const UserCard = ({ user, deleteUserById, setUpdateInfo, setFormClose }) => {
         </li>
         <li className="user__item">
           <span className="user__label">Birthday: </span>
-          <span className="user__value">{user.birthday}</span>
+          <span className="user__value"><i className='bx bx-gift user__icon'></i> {user.birthday}</span>
         </li>
       </ul>
       <footer className="user__footer">
-         <button onClick={handleUpdateButton}  className="user__btn user__update">
-          <i className="bx bx-edit "></i>
-        </button>
+        
         <button onClick={handleDeleteButton} className="user__btn user__delete">
           <i className="bx bx-trash"></i>
+        </button>
+        <button onClick={handleUpdateButton}  className="user__btn user__update">
+          <i className="bx bx-edit "></i>
         </button>
       
       </footer>
     </article>
+    
   );
 };
 

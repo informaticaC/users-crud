@@ -12,9 +12,14 @@
     margin-bottom: 1em;
     justify-content: space-between;
     align-items: center;
-    /* background-color: lightsalmon; */
+    background-color:rgb(133, 104, 120);
+    opacity: .8;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0; 
     height: 80px;
-    position: relative;
+    z-index: 1;
 }
 
 .app__title-formOpOk{
@@ -46,6 +51,8 @@
     /* margin-bottom: 1em; */
 }
 
+
+
 .app__btn {
     background-color: #555a88;
     color: white;
@@ -61,8 +68,21 @@
 }
 
 .app__user-container{
+    padding-top: 105px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5em;
+}
+
+@media screen and (min-width: 800px) {
+    .app__title{
+        
+        margin-left: 3em;
+       
+    }
+
+    .app__btn {
+        margin-right: 6em;
+    }
 }

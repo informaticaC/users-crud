@@ -3,8 +3,7 @@ import { useForm } from 'react-hook-form'
 import './styles/formUser.css'
 
 const FormUser = ({ createNewUser, updateInfo,  updateUserById,
-   setFormClose, formClose, setCrudOpOk }) => {
-
+  setFormClose, formClose, setCrudOpOk }) => {
 
   const {register, handleSubmit, reset } = useForm()
 
