@@ -5,19 +5,20 @@ import { useState } from "react"
 
 const useUserCrud = () =>{
     const [users, setUsers] = useState()
-    const url = 'https://users-crud.academlo.tech/users/'
+    // const url = 'https://users-crud.academlo.tech/users/'
+
+    const url = 'https://user-crud-academlo-2q5j.onrender.com/api/v1'
 
     //get
-
     const getAllUsers = () => {
-        axios.get(url)
+        axios.get(`${url}/users`)
             .then(res => setUsers(res.data))
             .catch(err => console.log(err))
     }
      
     //post
     const createNewUser = (data, setCrudOpOk) => {
-        axios.post(url, data)
+        axios.post(`${url}/users`, data)
         .then(res => {
             setCrudOpOk(true)
             getAllUsers()
@@ -25,12 +26,14 @@ const useUserCrud = () =>{
                 setCrudOpOk(false)
             }, 1500);
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     //delete
     const deleteUserById = (id, setCrudOpOk) => {
-        const urlDelete = `${url}${id}/`
+        const urlDelete = `${url}/users/${id}`
         axios.delete(urlDelete)
             .then(res => {
                 console.log('borrado Ok:', id);
@@ -47,10 +50,10 @@ const useUserCrud = () =>{
     }
 
     //update
-
     const updateUserById = (id, data, setCrudOpOk) => {
-        const urlUpdate = `${url}${id}/`
-        axios.patch(urlUpdate, data)
+        const urlUpdate = `${url}/users/${id}/`
+        console.log(urlUpdate)
+        axios.put(urlUpdate, data)
             .then(res => {
                 setCrudOpOk(true)
                 getAllUsers()
@@ -59,7 +62,12 @@ const useUserCrud = () =>{
                 }, 1500);
                 
             })
-            .catch(err => console.log(err))
+            
+            .catch(err => {
+                console.log(err)
+                console.log('update fail on address:', urlUpdate )
+                console.log('update fail on data:', data)
+            })
 
     }
 
